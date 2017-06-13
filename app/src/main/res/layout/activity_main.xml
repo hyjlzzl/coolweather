@@ -11,7 +11,62 @@
     tools:context="cn.lygtc.coolweather.MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:text="@string/street"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:id="@+id/streetView"
+        android:textSize="24sp"
+        android:layout_marginTop="42dp"
+        android:layout_below="@+id/districtView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="29dp"
+        android:id="@+id/countryView"
+        android:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:id="@+id/cityView"
+        android:textSize="24sp"
+        android:layout_below="@+id/countryView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/province"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:id="@+id/provinceView"
+        android:textSize="24sp"
+        android:layout_below="@+id/countryView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="@string/district"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/districtView"
+        android:textSize="24sp"
+        android:layout_below="@+id/cityView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="39dp" />
+
+    <TextView
+        android:text="@string/latlng"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/latlngView"
+        android:textSize="24sp"
+        android:layout_marginTop="43dp"
+        android:layout_below="@+id/streetView"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

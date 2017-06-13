@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">CoolWeather</string>
+    <string name="country">国别</string>
+    <string name="province">省份</string>
+    <string name="city">城市</string>
+    <string name="district">区县</string>
+    <string name="street">街道</string>
+    <string name="latlng">坐标</string>
 </resources>
