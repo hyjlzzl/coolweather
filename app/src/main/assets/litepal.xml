@@ -1,0 +1,8 @@
+<litepal>
+    <dbname value="coolweather" />
+    <list>
+        <mapping class="cn.lygtc.coolweather.db.Province" />
+        <mapping class="cn.lygtc.coolweather.db.City" />
+        <mapping class="cn.lygtc.coolweather.db.County" />
+    </list>
+</litepal>
