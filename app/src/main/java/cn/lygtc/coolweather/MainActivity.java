@@ -2,6 +2,7 @@ package cn.lygtc.coolweather;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
@@ -37,6 +38,9 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
 
     private Handler handler;
 
+    private String preferenceName = "weathercity";
+    private SharedPreferences preferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
         latlngView = (TextView)findViewById(R.id.latlngView);
         addCountyButton = (Button)findViewById(R.id.addCountyButton);
         addCountyButton.setOnClickListener(this);
+
+        preferences = getSharedPreferences(preferenceName,MODE_PRIVATE);
 
         locationClient = new LocationClient(getApplicationContext());
         LocationClientOption option = new LocationClientOption();
@@ -119,6 +125,14 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
             data.putString("district", bdLocation.getDistrict());
             data.putString("street", bdLocation.getStreet());
             data.putString("latlng","(" + bdLocation.getLatitude() + "," + bdLocation.getLongitude() + ")");
+            String city = bdLocation.getCity();
+            SharedPreferences.Editor editor = preferences.edit();
+            if(preferences.contains("CurrentCity")){
+                editor.remove("CurrentCity");
+            }
+            editor.putString("CurrentCity",city);
+            editor.commit();
+
             Message message = new Message();
             message.setData(data);
             handler.sendMessage(message);

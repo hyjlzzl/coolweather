@@ -1,10 +1,13 @@
 package cn.lygtc.coolweather;
 
-//import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +56,9 @@ public class ChooseAreaFragment extends Fragment {
     private City selectedCity;
     private int currentLevel;
 
+    private String preferenceName = "weathercity";
+    private SharedPreferences preferences;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -68,6 +74,8 @@ public class ChooseAreaFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        preferences = getActivity().getSharedPreferences(preferenceName, Context.MODE_PRIVATE);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
 
             @Override
@@ -78,7 +86,32 @@ public class ChooseAreaFragment extends Fragment {
                 } else if(currentLevel == LEVEL_CITY){
                     selectedCity = cityList.get(position);
                     queryCounties();
+                } else if(currentLevel == LEVEL_COUNTY){
                 }
+            }
+        });
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                if(currentLevel == LEVEL_COUNTY){
+                    AlertDialog dialog = new AlertDialog.Builder(getContext())
+                            .setTitle("确认")
+                            .setMessage("确定要将该地添加为关注城市吗？")
+                            .setPositiveButton("关注", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    County county = countyList.get(position);
+                                    SharedPreferences.Editor editor = preferences.edit();
+                                    int size = preferences.getAll().size();
+                                    editor.putString("city" + size, county.getCountyName() + "," + county.getWeatherId());
+                                    editor.commit();
+                                }
+                            })
+                            .setNegativeButton("放弃",null)
+                            .create();
+                    dialog.show();
+                }
+                return false;
             }
         });
         backButton.setOnClickListener(new View.OnClickListener(){
