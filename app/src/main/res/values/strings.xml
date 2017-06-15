@@ -6,4 +6,9 @@
     <string name="district">区县</string>
     <string name="street">街道</string>
     <string name="latlng">坐标</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="addcity">添加关注城市</string>
+    <string name="back">返回</string>
 </resources>

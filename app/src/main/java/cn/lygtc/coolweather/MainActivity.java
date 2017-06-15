@@ -1,6 +1,7 @@
 package cn.lygtc.coolweather;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.Message;
@@ -10,6 +11,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +24,7 @@ import com.baidu.location.LocationClientOption;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements BDLocationListener {
+public class MainActivity extends AppCompatActivity implements BDLocationListener, View.OnClickListener {
 
     private LocationClient locationClient;
     private TextView countryView;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
     private TextView districtView;
     private TextView streetView;
     private TextView latlngView;
+    private Button addCountyButton;
 
     private Handler handler;
 
@@ -44,6 +48,8 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
         districtView = (TextView)findViewById(R.id.districtView);
         streetView = (TextView)findViewById(R.id.streetView);
         latlngView = (TextView)findViewById(R.id.latlngView);
+        addCountyButton = (Button)findViewById(R.id.addCountyButton);
+        addCountyButton.setOnClickListener(this);
 
         locationClient = new LocationClient(getApplicationContext());
         LocationClientOption option = new LocationClientOption();
@@ -122,5 +128,11 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
     @Override
     public void onConnectHotSpotMessage(String s, int i) {
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent(this,ChooseAreaActivity.class);
+        startActivity(intent);
     }
 }

@@ -69,4 +69,13 @@
         android:layout_marginTop="43dp"
         android:layout_below="@+id/streetView"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/addcity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/addCountyButton"
+        android:textSize="18sp" />
 </RelativeLayout>
