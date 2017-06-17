@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by student on 2017/6/17.
  */
 
-public class Forcast {
+public class Forecast {
     public String date;
 
     @SerializedName("tmp")

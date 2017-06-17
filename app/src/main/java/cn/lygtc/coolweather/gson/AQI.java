@@ -1,5 +1,7 @@
 package cn.lygtc.coolweather.gson;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by student on 2017/6/17.
  */
@@ -10,6 +12,8 @@ public class AQI {
     private class AQICity {
         public String aqi;
         public String pm25;
-        public String qlty;
+
+        @SerializedName("qlty")
+        public String quality;
     }
 }
