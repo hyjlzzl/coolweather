@@ -14,4 +14,7 @@
     <string name="forecast">预报</string>
     <string name="aqi">空气质量</string>
     <string name="aq">AQI指数</string>
+    <string name="pm25">PM2.5指数</string>
+    <string name="suggestion">生活建议</string>
+    <string name="showweather">显示天气信息</string>
 </resources>

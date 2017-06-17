@@ -16,12 +16,12 @@ public class Forecast {
     public More more;
 
 
-    private class Temperature {
+    public class Temperature {
         public String max;
         public String min;
     }
 
-    private class More {
+    public class More {
         @SerializedName("code_d")
         public String dayCode;
         @SerializedName("txt_d")

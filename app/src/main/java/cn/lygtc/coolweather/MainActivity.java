@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
     private TextView streetView;
     private TextView latlngView;
     private Button addCountyButton;
+    private Button showWeatherButton;
 
     private Handler handler;
 
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
         latlngView = (TextView)findViewById(R.id.latlngView);
         addCountyButton = (Button)findViewById(R.id.addCountyButton);
         addCountyButton.setOnClickListener(this);
+        showWeatherButton = (Button)findViewById(R.id.showWeatherButton);
+        showWeatherButton.setOnClickListener(this);
 
         preferences = getSharedPreferences(preferenceName,MODE_PRIVATE);
 
@@ -146,7 +149,20 @@ public class MainActivity extends AppCompatActivity implements BDLocationListene
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this,ChooseAreaActivity.class);
-        startActivity(intent);
+        int id = view.getId();
+        switch(id){
+            case R.id.addCountyButton:{
+                Intent intent = new Intent(this,ChooseAreaActivity.class);
+                startActivity(intent);
+                break;
+            }
+            case R.id.showWeatherButton:{
+                Intent weatherActivity = new Intent(this,WeatherActivity.class);
+                weatherActivity.putExtra("weather_id","连云港");
+                startActivity(weatherActivity);
+                finish();
+                break;
+            }
+        }
     }
 }

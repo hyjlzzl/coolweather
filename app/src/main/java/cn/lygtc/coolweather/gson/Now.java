@@ -15,7 +15,7 @@ public class Now {
 
     public Wind wind;
 
-    private class More {
+    public class More {
         @SerializedName("txt")
         public String info;
 
@@ -23,7 +23,7 @@ public class Now {
 
     }
 
-    private class Wind {
+    public class Wind {
         @SerializedName("dir")
         public String direction;
 

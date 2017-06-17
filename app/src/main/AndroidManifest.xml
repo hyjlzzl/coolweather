@@ -43,9 +43,10 @@
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote"></service>
+            android:process=":remote" />
 
-        <activity android:name=".ChooseAreaActivity"></activity>
+        <activity android:name=".ChooseAreaActivity" />
+        <activity android:name=".WeatherActivity"></activity>
     </application>
 
 </manifest>

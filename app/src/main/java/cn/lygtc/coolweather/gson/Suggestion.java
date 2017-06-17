@@ -15,19 +15,19 @@ public class Suggestion {
 
     public Sport sport;
 
-    private class Comfort {
+    public class Comfort {
         public String brf;
         @SerializedName("txt")
         public String info;
     }
 
-    private class CarWash {
+    public class CarWash {
         public String brf;
         @SerializedName("txt")
         public String info;
     }
 
-    private class Sport {
+    public class Sport {
         public String brf;
         @SerializedName("txt")
         public String info;

@@ -78,4 +78,12 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/addCountyButton"
         android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/showWeatherButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/showweather" />
 </RelativeLayout>

@@ -14,11 +14,11 @@
         android:textSize="60sp" />
 
     <TextView
-        android:text="TextView"
+        android:id="@+id/weather_info_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/weather_info_text"
         android:layout_gravity="end"
+        android:text="TextView"
         android:textColor="#fff"
-        android:textSize="12sp" />
+        android:textSize="18sp" />
 </LinearLayout>
