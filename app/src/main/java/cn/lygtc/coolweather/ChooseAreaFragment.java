@@ -96,10 +96,10 @@ public class ChooseAreaFragment extends Fragment {
                         editor.apply();
                     }
                     String weatherId = countyList.get(position).getWeatherId();
-                    Intent intent = new Intent(getActivity(),WeatherActivity.class);
-                    intent.putExtra("weather_id",weatherId);
-                    startActivity(intent);
-                    getActivity().finish();
+                    WeatherActivity activity = (WeatherActivity)getActivity();
+                    activity.drawerLayout.closeDrawers();
+                    activity.swipeRefresh.setRefreshing(true);
+                    activity.requestWeather(weatherId);
                 }
             }
         });

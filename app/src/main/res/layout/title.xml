@@ -5,6 +5,15 @@
     android:layout_margin="15dp"
     android:background="@android:color/darker_gray">
 
+    <Button
+        android:text="+"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/another_city_button"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp" />
+
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"

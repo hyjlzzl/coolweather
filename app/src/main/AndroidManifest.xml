@@ -32,21 +32,19 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="jRxbHQGe8PEx642ZHm09GEXzz6pGROw0" />
 
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
 
         <activity android:name=".ChooseAreaActivity" />
-        <activity android:name=".WeatherActivity"></activity>
+        <activity android:name=".WeatherActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
