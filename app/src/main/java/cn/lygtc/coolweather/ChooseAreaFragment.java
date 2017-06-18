@@ -3,8 +3,10 @@ package cn.lygtc.coolweather;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
@@ -87,6 +89,17 @@ public class ChooseAreaFragment extends Fragment {
                     selectedCity = cityList.get(position);
                     queryCounties();
                 } else if(currentLevel == LEVEL_COUNTY){
+                    SharedPreferences cachePreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                    if(cachePreferences.contains("weather")){
+                        SharedPreferences.Editor editor=cachePreferences.edit();
+                        editor.remove("weather");
+                        editor.apply();
+                    }
+                    String weatherId = countyList.get(position).getWeatherId();
+                    Intent intent = new Intent(getActivity(),WeatherActivity.class);
+                    intent.putExtra("weather_id",weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
